@@ -1,20 +1,15 @@
 import 'package:animospede/routes/index.dart';
+import 'package:animospede/screens/configlist.dart';
 import 'package:animospede/screens/create_service.dart';
 import 'package:animospede/screens/divulgation.dart';
 import 'package:animospede/screens/profile.dart';
 import 'package:animospede/screens/service_details.dart';
 import 'package:animospede/screens/services.dart';
-import 'package:animospede/screens/services_advertising_list.dart';
-import 'package:animospede/screens/services_request_list.dart';
 import 'package:animospede/screens/solicitation.dart';
 import 'package:animospede/widgets/custom_bottom_bar.dart';
 import 'package:animospede/widgets/custom_card.dart';
-import 'package:animospede/widgets/index.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:animospede/core/app_export.dart';
-import 'package:animospede/widgets/custom_image_view.dart';
-import 'package:flutter/material.dart';
 
 const Color searchBackground = Color(0xFFFAFAFA);
 
@@ -87,22 +82,10 @@ Widget _buildHomeScreen(context) {
         ),
       ),
     ),
-    body: Column(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
+    body: Stack(
       children: [
         Column(
           children: [
-            Container(
-              alignment: Alignment.centerLeft,
-              padding: const EdgeInsets.only(left: 5),
-              child: const Text(
-                'Serviços em sua região',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
             Padding(
               padding: const EdgeInsets.only(top: 15),
               child: CarouselSlider(
@@ -119,149 +102,7 @@ Widget _buildHomeScreen(context) {
               ),
             ),
           ],
-        ),
-        Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                alignment: Alignment.topLeft,
-                padding: const EdgeInsets.only(left: 5),
-                child: const Text(
-                  'Seus serviços',
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Container(
-                child: GestureDetector(
-                  onTap: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => RequestList()),
-                  ),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: const Color(0xFFF5F5FA),
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(13.h),
-                      ),
-                    ),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        CustomImageView(
-                          imagePath: ImageConstant.solicitation,
-                          height: 170.v,
-                          width: 137.h,
-                          radius: BorderRadius.circular(13.h),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(
-                            left: 10.h,
-                            top: 13.v,
-                            bottom: 68.v,
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.only(left: 2.h),
-                                child: Text(
-                                  "Solicitação",
-                                  style: theme.textTheme.titleLarge,
-                                ),
-                              ),
-                              SizedBox(height: 26.v),
-                              SizedBox(
-                                width: 180.h,
-                                child: Text(
-                                  "Solicite um serviço para o seu Pet!",
-                                  maxLines: 2,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: CustomTextStyles
-                                      .labelLargePoppinsGray800
-                                      .copyWith(
-                                    height: 1.67,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Container(
-                child: GestureDetector(
-                  onTap: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => AdvertiseList()),
-                  ),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: const Color(0xFFF5F5FA),
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(13.h),
-                      ),
-                    ),
-                    margin: EdgeInsets.only(top: 48.v),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.only(
-                            left: 10.h,
-                            top: 20.v,
-                            bottom: 53.v,
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Divulgação",
-                                style: theme.textTheme.titleLarge,
-                              ),
-                              SizedBox(height: 31.v),
-                              SizedBox(
-                                width: 183.h,
-                                child: Text(
-                                  "Divulgue um serviço para atender os Pets de sua região!",
-                                  maxLines: 2,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: CustomTextStyles
-                                      .labelLargePoppinsGray800
-                                      .copyWith(height: 1.67),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        CustomImageView(
-                          imagePath: ImageConstant.divulgation,
-                          height: 170.v,
-                          width: 137.h,
-                          radius: BorderRadius.circular(13.h),
-                          margin: EdgeInsets.only(left: 8.h),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            )
-          ],
-        ),
+        )
       ],
     ),
   );
@@ -305,7 +146,7 @@ class Home extends StatelessWidget {
       case BottomBarEnum.servicos:
         return AppRoutes.services;
       case BottomBarEnum.perfil:
-        return AppRoutes.profile;
+        return AppRoutes.configlist;
       default:
         return AppRoutes.home;
     }
@@ -330,11 +171,11 @@ class Home extends StatelessWidget {
       case AppRoutes.createService:
         return const CreateService();
       case AppRoutes.solicitation:
-        return const Solicitation();
+        return const Solicitations();
       case AppRoutes.divulgation:
         return const Divulgation();
       case AppRoutes.profile:
-        return const Profile();
+        return const ConfigList();
       default:
         return const DefaultWidget();
     }

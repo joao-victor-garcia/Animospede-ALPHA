@@ -35,7 +35,9 @@ Widget _buildAdvertiseListScreen(BuildContext context) {
                           Text(
                             'Pedro',
                             style: TextStyle(
-                                fontSize: 32, fontWeight: FontWeight.bold,color: Colors.white),
+                                fontSize: 32,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white),
                           ),
                         ],
                       ),
@@ -56,23 +58,43 @@ Widget _buildAdvertiseListScreen(BuildContext context) {
             children: [
               Column(
                 children: [
-                  Text('Taxa horária',style: TextStyle(fontSize: 15),),
-                  Text('\$30', style: TextStyle(fontSize: 25),),
+                  Text(
+                    'Taxa horária',
+                    style: TextStyle(fontSize: 15),
+                  ),
+                  Text(
+                    '\$30',
+                    style: TextStyle(fontSize: 25),
+                  ),
                 ],
               ),
               Column(
                 children: [
-                  Text('Serviços concluídos',style: TextStyle(fontSize: 15),),
-                  Text('90', style: TextStyle(fontSize: 25),),
+                  Text(
+                    'Serviços concluídos',
+                    style: TextStyle(fontSize: 15),
+                  ),
+                  Text(
+                    '90',
+                    style: TextStyle(fontSize: 25),
+                  ),
                 ],
               ),
               Column(
                 children: [
-                  Text('Avaliação',style: TextStyle(fontSize: 15),),
-                  Row(children: [
-                    Text('5', style: TextStyle(fontSize: 25),),
-                    Icon(Icons.star)
-                  ],)
+                  Text(
+                    'Avaliação',
+                    style: TextStyle(fontSize: 15),
+                  ),
+                  Row(
+                    children: [
+                      Text(
+                        '5',
+                        style: TextStyle(fontSize: 25),
+                      ),
+                      Icon(Icons.star)
+                    ],
+                  )
                 ],
               ),
             ],
@@ -80,16 +102,42 @@ Widget _buildAdvertiseListScreen(BuildContext context) {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Text('Contato',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
-              Text('Serviços',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+              Text(
+                'Contato',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+              Text(
+                'Serviços',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
             ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Contato',style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold),),
-              Text('Serviços',style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold),),
+              Text(
+                '(17)98555-6888',
+                style: TextStyle(
+                  fontSize: 15,
+                ),
+              ),
+              Column(
+                children: [
+                  Text(
+                    'Hospedagem',
+                    style: TextStyle(
+                      fontSize: 15,
+                    ),
+                  ),
+                  Text(
+                    'Passeio',
+                    style: TextStyle(
+                      fontSize: 15,
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
         ],

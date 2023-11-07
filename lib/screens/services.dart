@@ -124,7 +124,7 @@ Widget _buildServicesScreen(BuildContext context) {
                   height: 10,
                 ),
                 SizedBox(
-                  height: 490,
+                  height: 700,
                   child: ListView.builder(
                     itemCount: data.length,
                     itemBuilder: (context, index) {
